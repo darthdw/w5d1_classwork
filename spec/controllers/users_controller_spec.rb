@@ -14,6 +14,8 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template('new')
     end
 
+    it "forwards to the index page when logged in already"
+
   end
 
   describe "GET #create" do
@@ -25,6 +27,10 @@ RSpec.describe UsersController, type: :controller do
       post :create, params: { user: {username: "buggle", password: ""} }
       expect(response).to render_template('new')
     end
+
+    it "doesn't work when a user is already logged in"
+
+    it "fails to create a new user if the user params aren't entirely complete"
   end
 
 end
